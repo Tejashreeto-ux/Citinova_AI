@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Route Finder | CITINOVA AI</title>
+
+    <link rel="stylesheet" href="portal.css">
+
+    <!-- Leaflet (OpenStreetMap map library) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+    <nav class="topbar">
+        <a class="brand" href="home.html">CITINOVA AI</a>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="route.html" class="active">Public Route Finder</a>
+            <a href="index.html">Government Control</a>
+        </div>
+    </nav>
+
+    <main class="finder">
+
+        <aside class="panel">
+            <h1>Public Route Finder</h1>
+            <p class="sub">Plan a driving route between two places.</p>
+
+            <form id="route-form" autocomplete="off" novalidate>
+
+                <label class="field-label" for="source">FROM</label>
+                <div class="field">
+                    <input id="source" type="text" placeholder="e.g. Bengaluru Railway Station" maxlength="200">
+                    <button type="button" class="icon-btn" id="locate" title="Use my current location" aria-label="Use my current location">◎</button>
+                    <button type="button" class="icon-btn" id="search-source" title="Show matching places" aria-label="Search source">🔍</button>
+                </div>
+                <ul class="suggestions" id="source-suggestions" hidden></ul>
+
+                <div class="swap-row">
+                    <button type="button" class="icon-btn" id="swap" title="Swap source and destination">⇅ Swap</button>
+                </div>
+
+                <label class="field-label" for="destination">TO</label>
+                <div class="field">
+                    <input id="destination" type="text" placeholder="e.g. Tumakuru Bus Stand" maxlength="200">
+                    <button type="button" class="icon-btn" id="search-destination" title="Show matching places" aria-label="Search destination">🔍</button>
+                </div>
+                <ul class="suggestions" id="destination-suggestions" hidden></ul>
+
+                <button type="submit" class="btn" id="find-btn">Find Route</button>
+            </form>
+
+            <div class="message" id="message" role="status" aria-live="polite"></div>
+
+            <div class="notice">
+                <strong>Estimate only.</strong> Time and distance come from
+                OpenStreetMap road data at typical speeds. No live traffic
+                provider is connected, so current congestion is not included.
+            </div>
+
+            <section class="results" id="results" hidden>
+                <h2>ROUTES</h2>
+                <div id="route-list"></div>
+
+                <h2>DIRECTIONS</h2>
+                <ol class="directions" id="steps"></ol>
+            </section>
+
+            <p class="attribution-note">
+                Map data © OpenStreetMap contributors · Search: Nominatim ·
+                Routing: OSRM demo server
+            </p>
+        </aside>
+
+        <section class="map-wrap" aria-label="Route map">
+            <div id="map"></div>
+        </section>
+
+    </main>
+
+    <script src="route.js"></script>
+</body>
+
+</html>

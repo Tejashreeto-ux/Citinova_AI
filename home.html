@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CITINOVA AI | Intelligent Mobility for Smarter Cities</title>
+    <link rel="stylesheet" href="portal.css">
+</head>
+
+<body>
+
+    <nav class="topbar">
+        <a class="brand" href="home.html">CITINOVA AI</a>
+
+        <div class="nav-links">
+            <a href="index.html">Government Control</a>
+            <a href="route.html">Public Route Finder</a>
+            <span class="status-chip" id="backend-status" title="Flask traffic backend">
+                <span class="status-dot"></span>
+                <span id="backend-status-text">Checking backend...</span>
+            </span>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div>
+            <span class="eyebrow">SMART CITIES AND MOBILITY</span>
+            <h1><span>CITINOVA AI</span></h1>
+            <p class="tagline">Intelligent Mobility for Smarter Cities.</p>
+            <p class="lead">
+                One platform, two audiences: city traffic authorities get
+                camera-based vehicle detection and adaptive signal control,
+                and commuters get a clear, easy route planner.
+            </p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="300" rx="14" fill="#0b1627" />
+                <rect x="165" y="0" width="70" height="300" fill="#1b2638" />
+                <rect x="0" y="115" width="400" height="70" fill="#1b2638" />
+                <rect x="165" y="115" width="70" height="70" fill="#202c42" />
+                <line x1="200" y1="0" x2="200" y2="110" stroke="#00d5ff" stroke-width="2" stroke-dasharray="14 14" class="dash-anim" />
+                <line x1="200" y1="190" x2="200" y2="300" stroke="#00d5ff" stroke-width="2" stroke-dasharray="14 14" class="dash-anim" />
+                <line x1="0" y1="150" x2="160" y2="150" stroke="#4385ff" stroke-width="2" stroke-dasharray="14 14" class="dash-anim" />
+                <line x1="240" y1="150" x2="400" y2="150" stroke="#4385ff" stroke-width="2" stroke-dasharray="14 14" class="dash-anim" />
+                <circle cx="152" cy="105" r="7" fill="#20e3a2" />
+                <circle cx="248" cy="105" r="7" fill="#ff6464" />
+                <circle cx="152" cy="195" r="7" fill="#ff6464" />
+                <circle cx="248" cy="195" r="7" fill="#ff6464" />
+                <rect x="108" y="40" width="42" height="22" rx="4" fill="none" stroke="#20e3a2" stroke-width="1.5" />
+                <text x="112" y="36" font-size="10" fill="#20e3a2" font-family="sans-serif">car</text>
+                <rect x="250" y="210" width="42" height="22" rx="4" fill="none" stroke="#00d5ff" stroke-width="1.5" />
+                <text x="254" y="248" font-size="10" fill="#00d5ff" font-family="sans-serif">truck</text>
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <section class="portals" aria-label="Choose a portal">
+
+            <a class="portal-card" href="index.html">
+                <div class="portal-icon" aria-hidden="true">🚦</div>
+                <h2>Government Control</h2>
+                <div class="portal-for">FOR TRAFFIC AUTHORITIES</div>
+                <p>
+                    Monitor junction traffic from camera video and manage
+                    signals from one control dashboard.
+                </p>
+                <ul>
+                    <li>YOLOv8 vehicle detection per road</li>
+                    <li>LOW / MEDIUM / HIGH density status</li>
+                    <li>Rule-based adaptive signal timing</li>
+                    <li>Emergency vehicle priority</li>
+                    <li>3D four-way intersection simulation</li>
+                </ul>
+                <span class="btn">Open Control Center →</span>
+            </a>
+
+            <a class="portal-card" href="route.html">
+                <div class="portal-icon" aria-hidden="true">🗺️</div>
+                <h2>Public Route Finder</h2>
+                <div class="portal-for">FOR COMMUTERS</div>
+                <p>
+                    Search two places and see the driving route, distance,
+                    estimated time and turn-by-turn directions.
+                </p>
+                <ul>
+                    <li>Interactive OpenStreetMap map</li>
+                    <li>Distance and travel-time estimate</li>
+                    <li>Alternative routes when available</li>
+                    <li>Clear step-by-step directions</li>
+                    <li>Works on phones and tablets</li>
+                </ul>
+                <span class="btn">Plan a Route →</span>
+            </a>
+
+        </section>
+
+        <section class="section">
+            <h2 class="title">How the Control Center works</h2>
+            <p class="sub">A simple, transparent pipeline from camera to signal.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <b>STEP 1 · DETECT</b>
+                    <h3>YOLOv8 counts vehicles</h3>
+                    <p>
+                        A pre-trained YOLOv8n model counts cars, motorcycles,
+                        buses and trucks in four zones of the traffic video.
+                    </p>
+                </div>
+                <div class="step">
+                    <b>STEP 2 · DECIDE</b>
+                    <h3>Rule-based signal logic</h3>
+                    <p>
+                        Each road gets a priority score from vehicle count and
+                        waiting time. The highest score gets green, for
+                        15 to 45 seconds. This is a fixed rule set, not a
+                        trained prediction model.
+                    </p>
+                </div>
+                <div class="step">
+                    <b>STEP 3 · RESPOND</b>
+                    <h3>Simulation and emergency override</h3>
+                    <p>
+                        The 3D intersection follows the signal decision. An
+                        emergency vehicle can override the cycle for 30 seconds.
+                    </p>
+                </div>
+            </div>
+
+            <div class="honesty">
+                <strong>About the Route Finder:</strong> routes come from
+                OpenStreetMap data and travel times are free-flow estimates.
+                CITINOVA AI is not connected to a live traffic provider, so
+                real-time congestion is not shown on commuter routes.
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>CITINOVA AI | Intelligent Mobility for Smarter Cities</p>
+        <p>Hackathon prototype · Map data © OpenStreetMap contributors</p>
+    </footer>
+
+    <script>
+        // When this page is served by Flask (port 5000) use same-origin calls;
+        // otherwise (file:// or another server) fall back to the Flask address.
+        const API = location.port === "5000" ? "" : "http://127.0.0.1:5000";
+
+        const chip = document.getElementById("backend-status");
+        const chipText = document.getElementById("backend-status-text");
+
+        async function checkBackend() {
+            try {
+                const controller = new AbortController();
+                const timer = setTimeout(() => controller.abort(), 3000);
+                const response = await fetch(`${API}/api/health`, { signal: controller.signal });
+                clearTimeout(timer);
+
+                if (!response.ok) throw new Error("bad status");
+
+                chip.className = "status-chip online";
+                chipText.textContent = "Traffic backend online";
+            } catch (error) {
+                chip.className = "status-chip offline";
+                chipText.textContent = "Backend offline - start Flask";
+            }
+        }
+
+        checkBackend();
+        setInterval(checkBackend, 5000);
+    </script>
+
+</body>
+
+</html>
